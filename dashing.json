@@ -1,0 +1,41 @@
+{
+    "name": "Java",
+    "package": "Java",
+    "index": "index.html",
+    "selectors": {
+        "div#all-modules-table div.col-first a": "Module",
+        "title": {
+            "type": "Package",
+            "matchpath": ".+/package-summary\\.html",
+            "regexp": "\\(.*\\)",
+            "replacement": ""
+        },
+        "h1.title": [{
+            "type": "Interface",
+            "requiretext": "^Interface\\s[a-zA-Z<>]+$",
+            "regexp": "^Interface|<[^>]>",
+            "replacement": ""
+        }, {
+            "type": "Class",
+            "requiretext": "^Class\\s[a-zA-Z<>]+$",
+            "regexp": "^Class|<[^>]>",
+            "replacement": ""
+        }, {
+            "type": "Annotation",
+            "requiretext": "^Annotation\\sInterface\\s[a-zA-Z<>]+$",
+            "regexp": "Annotation|Interface|\\s",
+            "replacement": ""
+        }],
+        "div.col-second.method-summary-table code": {
+            "type": "Method",
+            "regexp": "<[^>]*>|[\\r\\n]|&nbsp;(.*?)[a-zA-Z]*|\\s",
+            "replacement": ""
+        }
+    },
+    "ignore": [
+        "ABOUT"
+    ],
+    "icon32x32": "",
+    "allowJS": false,
+    "ExternalURL": ""
+}
